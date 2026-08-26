@@ -15,7 +15,7 @@ export function ContactSection() {
     >
       <div className="rounded-xl border border-[#1B133C]/10 bg-white/62 p-6 text-center shadow-[0_24px_90px_rgba(27,19,60,0.1)] backdrop-blur-2xl sm:p-10 md:p-14">
         <img
-          src="/avatar.jpg"
+          src={`${import.meta.env.BASE_URL}avatar.jpg`}
           alt="头像"
           className="mx-auto h-24 w-24 rounded-full border border-[#1B133C]/10 object-cover shadow-[0_12px_36px_rgba(27,19,60,0.18)] ring-4 ring-white/70 sm:h-28 sm:w-28"
         />
