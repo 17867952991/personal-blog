@@ -1,0 +1,38 @@
+<view class="detail-page">
+  <view wx:if="{{missing}}" class="missing-state">
+    <text class="missing-title">未找到这部作品</text>
+    <text class="missing-copy">这部影片可能已被移除，或访问链接无效。</text>
+    <button class="home-button" bindtap="returnHome">返回主页</button>
+  </view>
+
+  <block wx:elif="{{work}}">
+    <view class="detail-header">
+      <text class="work-meta">{{work.year}} / {{work.category}}</text>
+      <text class="work-title">{{work.title}}</text>
+    </view>
+
+    <view class="video-panel">
+      <video class="work-video" src="{{work.videoUrl}}" poster="{{work.coverImage}}" controls show-fullscreen-btn enable-progress-gesture object-fit="contain" />
+    </view>
+
+    <view class="detail-card">
+      <text class="card-title">影片基础信息</text>
+      <view class="detail-rows">
+        <view wx:for="{{detailRows}}" wx:key="label" class="detail-row">
+          <text class="row-label">{{item.label}}</text><text class="row-value">{{item.value}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="detail-card"><text class="card-title">作品简介</text><text class="card-copy">{{work.description}}</text></view>
+    <view class="detail-card"><text class="card-title">导演手记</text><text class="director-note">{{work.directorNote}}</text></view>
+
+    <view wx:if="{{archive.length}}" class="archive-grid">
+      <image wx:for="{{archive}}" wx:key="*this" class="archive-image" src="{{item}}" mode="aspectFill" />
+    </view>
+
+    <view wx:if="{{tags.length}}" class="tag-list">
+      <text wx:for="{{tags}}" wx:key="*this" class="tag">{{item}}</text>
+    </view>
+  </block>
+</view>

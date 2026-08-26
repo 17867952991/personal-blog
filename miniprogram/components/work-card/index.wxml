@@ -1,0 +1,9 @@
+<view class="work-card" bindtap="selectWork">
+  <image class="work-image" src="{{work.coverImage}}" mode="aspectFill" />
+  <view class="work-body">
+    <text class="work-meta">{{work.year}} / {{work.category}}</text>
+    <text class="work-title">{{work.title}}</text>
+    <text class="work-duration">{{work.duration}}</text>
+    <view class="tag-list"><text wx:for="{{work.tags}}" wx:key="*this" class="tag">{{item}}</text></view>
+  </view>
+</view>

@@ -1,0 +1,44 @@
+<view id="top" class="page-shell">
+  <view class="hero">
+    <image class="hero-cover" src="/assets/images/weizhuantoushi-jiemeng-poster.jpg" mode="aspectFill" />
+    <view class="hero-overlay"></view>
+    <portfolio-nav bind:navigate="onNavigate" />
+    <view class="hero-content">
+      <view class="eyebrow"><text class="eyebrow-mark">F</text><text>影像作品集</text></view>
+      <text class="hero-title">光影寄存处</text>
+      <view class="hero-divider"></view>
+      <text class="hero-subtitle">一个关于编导专业大学生的作品档案</text>
+      <view class="hero-actions">
+        <button class="primary-button" bindtap="scrollToSection" data-target="works">查看全部作品</button>
+        <button class="secondary-button" bindtap="scrollToSection" data-target="showreel">播放样片</button>
+      </view>
+    </view>
+  </view>
+
+  <view id="works" class="section">
+    <section-heading title="全部作品" copy="AI作品、实拍作品的视觉档案。按标签分类整理，点击影片可查看制作者、职责、片长和创作说明。" />
+    <filter-chips class="works-filters" filters="{{filters}}" active="{{activeFilter}}" bind:change="selectFilter" />
+    <view wx:if="{{visibleWorks.length}}" class="works-grid">
+      <work-card wx:for="{{visibleWorks}}" wx:key="id" work="{{item}}" bind:select="openWork" />
+    </view>
+    <view wx:else class="empty-state">当前分类暂无作品</view>
+  </view>
+
+  <view id="showreel" class="section">
+    <section-heading title="代表样片" copy="用大尺寸影像容器展示当前代表剪辑。" />
+    <view class="showreel-panel"><video class="showreel-video" src="{{showreelVideoUrl}}" poster="/assets/images/weizhuantoushi-jiemeng-poster.jpg" controls muted loop show-fullscreen-btn object-fit="cover" /><text class="showreel-label">代表样片 / 2026</text></view>
+  </view>
+
+  <view id="statement" class="section">
+    <view class="statement-card"><section-heading title="导演阐述" /><text class="statement-quote">希望通过这些作品，可以让大家更好的了解我，了解我的团队。</text><text class="statement-copy">我关注人与人之间不被说出口的情绪，也关注空间、记忆和时间如何改变一个人的状态。我的创作常常从一次停顿、一个眼神、一间人离开后的房间开始，然后把它发展成影像、节奏和叙事。</text></view>
+  </view>
+
+  <view id="about" class="section">
+    <image class="about-image" src="/assets/images/about-campus-sunset.jpg" mode="aspectFill" />
+    <view class="about-card"><section-heading title="关于我" /><text class="about-copy">我是一名编导生，希望通过这个网站，可以留存大家在大学期间拍摄的美好影片。</text><view class="skill-grid"><text>短片创作</text><text>剧本编写</text><text>剪辑</text></view><view class="tag-list"><text class="tag">导演</text><text class="tag">剪辑</text><text class="tag">摄影</text><text class="tag">记忆</text></view></view>
+  </view>
+
+  <view id="contact" class="section">
+    <view class="contact-panel"><section-heading title="联系我" copy="一起完成一个有画面感的项目。欢迎大家进行投稿。" /><view class="contact-grid"><contact-card wx:for="{{contacts}}" wx:key="label" label="{{item.label}}" value="{{item.value}}" bind:copy="copyContact" /></view><button class="contact-button" data-value="3598938817@qq.com" bindtap="copyContactValue">联系我</button></view>
+  </view>
+</view>

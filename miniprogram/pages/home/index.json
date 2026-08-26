@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "光影寄存处",
+  "usingComponents": {
+    "portfolio-nav": "/components/portfolio-nav/index",
+    "filter-chips": "/components/filter-chips/index",
+    "work-card": "/components/work-card/index",
+    "section-heading": "/components/section-heading/index",
+    "contact-card": "/components/contact-card/index"
+  }
+}

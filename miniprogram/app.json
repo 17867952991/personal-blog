@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/work-detail/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "光影寄存处",
+    "navigationBarBackgroundColor": "#f7f7fb",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f7fb",
+    "backgroundTextStyle": "light"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

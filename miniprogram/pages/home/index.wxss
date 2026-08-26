@@ -1,0 +1,27 @@
+.page-shell { min-height: 100vh; background: #f7f7fb; }
+.hero { position: relative; display: flex; min-height: 100vh; overflow: hidden; }
+.hero-cover { position: absolute; width: 100%; height: 100%; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.32), rgba(247,247,251,.86)); }
+.hero-content { position: relative; z-index: 1; display: flex; box-sizing: border-box; width: 100%; padding: 220rpx 48rpx 140rpx; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.eyebrow { display: flex; align-items: center; gap: 14rpx; padding: 12rpx 22rpx; border: 1rpx solid rgba(255,255,255,.75); border-radius: 20rpx; background: rgba(255,255,255,.64); font-size: 24rpx; }
+.eyebrow-mark { display: grid; width: 42rpx; height: 42rpx; border-radius: 12rpx; place-items: center; background: #f97316; color: #fff; font-weight: 700; }
+.hero-title { margin-top: 50rpx; font-family: Georgia, "Songti SC", serif; font-size: 92rpx; font-weight: 700; line-height: 1; letter-spacing: 8rpx; }
+.hero-divider { width: 120rpx; height: 2rpx; margin-top: 38rpx; background: rgba(27,19,60,.28); }
+.hero-subtitle { margin-top: 36rpx; color: rgba(27,19,60,.68); font-size: 28rpx; line-height: 1.9; }
+.hero-actions { display: flex; width: 100%; margin-top: 56rpx; gap: 20rpx; justify-content: center; }
+.hero-actions button { margin: 0; padding: 0 28rpx; border-radius: 18rpx; font-size: 26rpx; line-height: 84rpx; }
+.primary-button { background: #1b133c; color: #fff; box-shadow: 0 16rpx 32rpx rgba(27,19,60,.18); }
+.secondary-button { border: 1rpx solid rgba(27,19,60,.12); background: rgba(255,255,255,.72); color: #1b133c; }
+.section { display: flex; box-sizing: border-box; min-height: 300rpx; padding: 96rpx 40rpx; flex-direction: column; }
+.section-title { font-family: Georgia, "Songti SC", serif; font-size: 64rpx; font-weight: 700; line-height: 1.1; }
+.section-copy { margin-top: 28rpx; color: rgba(27,19,60,.68); font-size: 28rpx; line-height: 1.8; }
+.works-filters { display: block; margin-top: 42rpx; }
+.works-grid { display: grid; margin-top: 36rpx; gap: 28rpx; }
+.empty-state { margin-top: 36rpx; padding: 40rpx; border: 1rpx solid rgba(27,19,60,.1); border-radius: 20rpx; background: rgba(255,255,255,.62); color: rgba(27,19,60,.65); text-align: center; }
+.showreel-panel { position: relative; overflow: hidden; margin-top: 36rpx; border: 1rpx solid rgba(27,19,60,.1); border-radius: 20rpx; background: #08070f; box-shadow: 0 18rpx 48rpx rgba(27,19,60,.1); }
+.showreel-video { display: block; width: 100%; height: 390rpx; }.showreel-label { position: absolute; top: 20rpx; left: 20rpx; padding: 10rpx 16rpx; border-radius: 12rpx; background: rgba(255,255,255,.76); color: #1b133c; font-size: 21rpx; font-weight: 700; }
+.statement-card, .about-card, .contact-panel { display: flex; box-sizing: border-box; margin-top: 12rpx; padding: 40rpx; flex-direction: column; border: 1rpx solid rgba(27,19,60,.1); border-radius: 22rpx; background: rgba(255,255,255,.7); box-shadow: 0 18rpx 48rpx rgba(27,19,60,.08); }
+.statement-quote { margin-top: 44rpx; font-family: Georgia, "Songti SC", serif; font-size: 42rpx; font-style: italic; line-height: 1.35; }.statement-copy, .about-copy { margin-top: 30rpx; color: rgba(27,19,60,.7); font-size: 27rpx; line-height: 1.8; }
+.about-image { display: block; width: 100%; height: 420rpx; margin-bottom: 28rpx; border-radius: 22rpx; }.skill-grid { display: grid; margin-top: 34rpx; grid-template-columns: repeat(2, 1fr); gap: 16rpx; }.skill-grid text { padding: 20rpx; border-radius: 14rpx; background: #f7f7fb; font-size: 25rpx; font-weight: 700; }
+.tag-list { display: flex; margin-top: 28rpx; flex-wrap: wrap; gap: 12rpx; }.tag { padding: 9rpx 16rpx; border-radius: 13rpx; background: #eeeaf6; color: rgba(27,19,60,.75); font-size: 22rpx; }
+.contact-grid { display: grid; margin-top: 34rpx; gap: 16rpx; }.contact-button { width: 260rpx; margin: 40rpx auto 0; border-radius: 16rpx; background: #1b133c; color: #fff; font-size: 27rpx; line-height: 84rpx; }

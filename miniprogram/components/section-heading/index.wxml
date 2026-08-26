@@ -1,0 +1,1 @@
+<view class="heading"><text class="title">{{title}}</text><text wx:if="{{copy}}" class="copy">{{copy}}</text></view>

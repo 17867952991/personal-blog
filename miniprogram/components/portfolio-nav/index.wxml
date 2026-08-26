@@ -1,0 +1,11 @@
+<view class="nav-wrap">
+  <view class="nav-panel">
+    <view class="brand" data-target="top" bindtap="navigate">F</view>
+    <view class="nav-links">
+      <text data-target="works" bindtap="navigate">作品</text>
+      <text data-target="showreel" bindtap="navigate">样片</text>
+      <text data-target="statement" bindtap="navigate">阐述</text>
+      <text data-target="contact" bindtap="navigate">联系</text>
+    </view>
+  </view>
+</view>

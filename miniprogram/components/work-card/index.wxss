@@ -1,0 +1,8 @@
+.work-card { overflow: hidden; border: 1rpx solid rgba(27,19,60,.1); border-radius: 20rpx; background: rgba(255,255,255,.75); box-shadow: 0 18rpx 48rpx rgba(27,19,60,.08); }
+.work-image { display: block; width: 100%; height: 360rpx; background: #eee; }
+.work-body { display: flex; padding: 28rpx; flex-direction: column; }
+.work-meta, .work-duration { color: rgba(27,19,60,.58); font-size: 23rpx; }
+.work-title { margin-top: 12rpx; font-family: Georgia, "Songti SC", serif; font-size: 42rpx; font-weight: 700; }
+.work-duration { margin-top: 10rpx; }
+.tag-list { display: flex; margin-top: 22rpx; flex-wrap: wrap; gap: 10rpx; }
+.tag { padding: 7rpx 14rpx; border-radius: 12rpx; background: #f5f3fa; color: rgba(27,19,60,.7); font-size: 21rpx; }

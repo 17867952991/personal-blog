@@ -1,0 +1,9 @@
+<view class="chips" aria-label="作品分类筛选">
+  <button
+    wx:for="{{filters}}"
+    wx:key="*this"
+    class="chip {{item === active ? 'chip-active' : ''}}"
+    data-filter="{{item}}"
+    bindtap="selectFilter"
+  >{{item}}</button>
+</view>

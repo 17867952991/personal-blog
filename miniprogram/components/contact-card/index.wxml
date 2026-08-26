@@ -1,0 +1,1 @@
+<view class="contact-card" bindtap="copy"><text class="contact-label">{{label}}</text><text class="contact-value">{{value}}</text><text class="contact-action">点击复制</text></view>

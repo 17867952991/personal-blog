@@ -1,0 +1,2 @@
+.contact-card { display: flex; min-height: 122rpx; box-sizing: border-box; padding: 22rpx; justify-content: center; flex-direction: column; border: 1rpx solid rgba(27,19,60,.1); border-radius: 18rpx; background: rgba(255,255,255,.74); }
+.contact-label { color: #1b133c; font-size: 27rpx; font-weight: 700; }.contact-value { margin-top: 5rpx; color: rgba(27,19,60,.68); font-size: 24rpx; }.contact-action { margin-top: 6rpx; color: #ea580c; font-size: 21rpx; }

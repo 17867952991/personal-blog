@@ -1,0 +1,22 @@
+export type PortfolioWork = {
+  title: string;
+  year: string;
+  category: string;
+  role: string;
+  duration: string;
+  creators?: string[];
+  coverImage?: string;
+  videoUrl?: string;
+  description?: string;
+  directorNote?: string;
+  stills?: string[];
+  storyboards?: string[];
+  behindTheScenes?: string[];
+  tools?: string[];
+  tags?: string[];
+  format?: string;
+  location?: string;
+  collection?: string;
+  episode?: number;
+  collectionTotal?: number;
+};

@@ -1,0 +1,447 @@
+请为我设计并开发一个 PC 端优先展示的个人作品集网站。我是一名编导生，网站用于展示我的导演、编剧、摄影、分镜、短片、广告片、纪录片、广告片、实验影像等作品。整体设计风格参考 Axon landing page：高级、干净、电影感、全屏视频背景、玻璃拟态导航、居中大标题、轻盈留白、柔和动效、白色半透明 UI。不要做成普通作品集模板，也不要做成暗黑赛博风。
+
+核心要求：
+这是一个“编导生 / 年轻导演 / 影像创作者”的个人作品集网站，不是 SaaS 产品网站。
+视觉上保留 Axon 的完整风格语言，但所有文案、内容结构、作品展示方式都要服务于我的个人创作身份。
+网站要让访客一进入页面，就感受到我的影像审美、叙事能力、导演意识和专业作品集气质。
+
+页面标题：
+"Director Portfolio — Film, Storytelling & Visual Works"
+
+如果没有提供真实姓名，使用占位：
+"YOUR NAME"
+
+身份描述：
+"Director / Screenwriter / Visual Storyteller"
+或中文：
+"编导生 / 导演 / 编剧 / 影像创作者"
+
+一、整体视觉风格
+
+整体设计参考 Axon 页面：
+- full-viewport hero section
+- looping background video
+- centered editorial typography
+- glassmorphism navigation
+- translucent white UI
+- soft shadow
+- clean layout
+- cinematic but bright
+- elegant motion
+- premium portfolio feeling
+
+保留 Axon 的浅色、通透、干净、高级感，不要改成纯黑电影网站。
+背景可以使用我的作品混剪、片场画面、剧照蒙太奇、光影运动、城市夜景、人物背影、镜头推进等影像素材。
+如果没有真实素材，先使用占位视频。
+
+背景视频 URL 可暂时使用：
+https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260714_113715_c7e0daa0-8bdd-4486-a2da-040901f8f0ea.mp4
+
+整体感觉应像：
+- 一个年轻导演的线上影像档案
+- 一个电影节入围导演的个人主页
+- 一个高级 showreel 入口
+- 一个干净、克制、有审美的创作者作品集
+
+避免：
+- 普通简历网站
+- 过度赛博朋克
+- 重霓虹光效
+- 花哨卡片堆叠
+- 低级模板感
+- 过度暗黑
+- 大段无意义介绍文字
+
+二、字体要求
+
+加载 Google Fonts：
+- `Instrument Serif` regular + italic
+- `Inter` weights 400, 500, 600
+
+字体使用：
+- Body font: `Inter`
+- Heading font: `Instrument Serif`
+- 正文颜色：`#1B133C`
+- 重要标题使用 `Instrument Serif`
+- 作品编号、年份、类型、时间码、角色信息可使用 `Inter` 或等宽风格处理
+- 可少量使用 `Instrument Serif Italic` 表现导演阐述、创作宣言或诗性文案
+
+CSS reset in `index.css`:
+body {
+  font-family: 'Inter', sans-serif;
+  color: #1B133C;
+}
+
+三、技术架构
+
+请使用现代前端技术栈：
+- Vite + React 或 Next.js
+- TypeScript
+- Tailwind CSS
+- Framer Motion 用于页面入场、滚动、hover、转场动效
+- HTML5 video 用于背景视频
+- 作品数据使用本地 JSON / TypeScript 数据文件管理
+- 图片和视频资源支持后续替换
+- 页面 PC 端优先，兼容 1440px、1920px 及更宽屏幕
+- 同时保留基础移动端响应式
+
+页面性能：
+- 背景视频必须 `autoPlay muted loop playsInline`
+- 图片懒加载
+- 视频不阻塞首屏渲染
+- 动效流畅克制
+- 保证文字在视频背景上始终清晰可读
+
+四、页面结构
+
+网站为单页作品集网站。
+第一屏必须是 Axon 风格的 full-screen hero。
+下方可以继续展示作品集内容，但所有区域都要延续 Axon 的轻盈、玻璃、电影感设计语言。
+
+整体结构：
+1. Hero 首屏
+2. Selected Works 精选作品
+3. Showreel / Featured Film 展示区
+4. Director Statement 导演阐述
+5. Creative Timeline 创作时间线
+6. About Me 关于我
+7. Contact 联系方式
+
+五、Hero 首屏
+
+Hero section:
+使用：
+`relative h-screen w-full overflow-hidden flex flex-col`
+
+背景视频：
+- 绝对定位在最底层
+- `absolute inset-0 z-0`
+- video attributes:
+`autoPlay muted loop playsInline`
+- video style:
+`w-full h-[130%] object-cover object-top`
+
+视频上方增加柔和遮罩：
+- 让画面保持明亮、通透
+- 保证文字可读
+- 不要变成厚重黑色蒙版
+
+建议遮罩：
+`absolute inset-0 z-[1] bg-white/20`
+再叠加：
+`bg-gradient-to-b from-white/35 via-white/10 to-white/25`
+
+所有前景内容：
+`relative z-10`
+
+六、导航栏
+
+导航栏居中位于顶部：
+`pt-4 md:pt-6`
+
+导航 pill 样式：
+`bg-white/70 backdrop-blur-md rounded-xl px-4 md:px-6 py-3 shadow-sm`
+
+导航内容：
+左侧放自定义 SVG logo，24x24px。
+Logo 使用两组几何箭头 / chevron 形状，颜色 `#1B133C`，保留 Axon 的几何标识感，但让它看起来像“播放键 + 镜头框 + 导演标记”的结合。
+
+SVG viewBox:
+`0 0 256 256`
+
+SVG paths:
+`M 256 256 L 128 256 L 0 128 L 128 128 Z`
+`M 256 128 L 128 128 L 0 0 L 128 0 Z`
+
+导航链接：
+移动端隐藏，`sm:` 以上显示。
+链接为：
+"Works"
+"Showreel"
+"Statement"
+"Contact"
+
+链接样式：
+`text-sm font-medium text-[#1B133C]/80`
+hover 时过渡到 full opacity。
+
+七、Hero 内容
+
+Hero 内容居中，位于导航下方：
+`mt-8 md:mt-16`
+纵向堆叠，对齐居中。
+
+Badge:
+使用：
+`mb-6 inline-flex rounded-xl border border-[#1B133C]/10 bg-white/70 backdrop-blur-sm px-4 py-2 text-sm font-medium`
+
+Badge 内容：
+左侧一个橙色小方块：
+`bg-orange-500 rounded w-5 h-5`
+里面放白色粗体符号：
+"F" 或 "▶"
+
+Badge 文案：
+"Film Portfolio / Selected Works"
+
+主标题：
+使用：
+`font-['Instrument_Serif'] text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-[#1B133C] max-w-4xl`
+
+标题两行：
+"Directing stories"
+"through light and time"
+
+也可以提供中文版本：
+"用镜头组织情绪"
+"用叙事捕捉时间"
+
+副标题：
+使用：
+`mt-5 sm:mt-6 max-w-3xl text-xs sm:text-sm md:text-base leading-relaxed text-[#1B133C]/70`
+
+副标题文案：
+"A cinematic portfolio of short films, scripts, storyboards, documentaries, and visual experiments. I explore emotion, rhythm, memory, and human relationships through image, sound, and narrative structure."
+
+CTA 按钮：
+使用：
+`mt-7 sm:mt-8 rounded-xl bg-[#FEFEFE] px-6 sm:px-8 py-3 sm:py-3.5 text-sm font-semibold text-[#1B133C] shadow-[0px_4px_12px_rgba(0,0,0,0.15)]`
+
+hover:
+`shadow-[0px_6px_16px_rgba(0,0,0,0.2)] transition-all duration-300`
+
+按钮文字：
+"View Selected Works"
+
+按钮下方可加一行小字：
+"Short films · Storyboards · Director statement · Visual archive"
+
+八、Selected Works 精选作品区
+
+该区域继续沿用 Axon 的通透高级感，不要变成厚重暗色作品墙。
+
+布局：
+- PC 端使用横向大卡片或 2-3 列大图网格
+- 每个作品像一张电影海报或剧照档案
+- 卡片使用轻微圆角，4-8px
+- 背景可使用 `bg-white/60 backdrop-blur-md`
+- 边框使用 `border border-[#1B133C]/10`
+- 阴影要轻，不要厚重
+
+作品卡片内容：
+- 作品标题
+- 年份
+- 类型
+- 我的职责
+- 时长
+- 封面图
+- 简短简介
+
+示例作品数据：
+1. "Silent Corridor" / 2026 / Short Film / Director, Screenwriter / 08:42
+2. "Before the Rain Stops" / 2025 / Documentary / Director, Editor / 12:10
+3. "Frame Study 01" / 2025 / Storyboard / Visual Design / 24 frames
+4. "A Room Facing West" / 2024 / Experimental Film / Director / 05:36
+
+hover 效果：
+- 封面轻微放大
+- 画面出现柔和白色玻璃遮罩
+- 标题、年份、角色信息浮现
+- 鼠标移动时可以有非常轻微的视差
+- 动效要优雅，不要夸张
+
+九、作品详情展示
+
+点击作品后可以使用详情弹窗、展开面板或同页 detail section。
+不需要复杂多页，但结构要为未来扩展留好。
+
+详情内容包括：
+- 视频 / 预告片
+- 作品简介
+- 我的职责
+- 创作阐述
+- 剧照
+- 分镜
+- 幕后图
+- 使用工具
+- 项目标签
+
+作品数据结构建议：
+{
+  title: string,
+  year: string,
+  category: string,
+  role: string,
+  duration: string,
+  coverImage: string,
+  videoUrl: string,
+  description: string,
+  directorNote: string,
+  stills: string[],
+  storyboards: string[],
+  behindTheScenes: string[],
+  tags: string[]
+}
+
+十、Showreel 展示区
+
+加入一个 showreel 区域，用来展示我的代表视频。
+设计上像 Axon 页面里的精致产品展示，但内容换成影片播放器。
+
+要求：
+- 大尺寸横向视频容器
+- 玻璃质感外框
+- 轻微阴影
+- 角落显示 "SHOWREEL / 2026"
+- 可以加入时间码样式细节，如 "00:00:08:12"
+- 视频支持本地 mp4 或外链嵌入
+
+十一、Director Statement 导演阐述
+
+该区域用于展示我的创作理念。
+排版要像电影节手册或导演自述，但保持 Axon 的干净、明亮、留白。
+
+标题：
+"Director Statement"
+
+正文示例：
+"I am interested in the quiet tension between people, places, and memory. My work often begins with a small emotional detail — a pause, a glance, a room after someone leaves — and turns it into rhythm, image, and narrative."
+
+中文版本：
+"我关注人与人之间不被说出口的情绪，也关注空间、记忆和时间如何改变一个人的状态。我的创作常常从一个很小的情绪细节开始：一次停顿、一个眼神、一间人离开后的房间，然后把它发展成影像、节奏和叙事。"
+
+十二、Creative Timeline 创作时间线
+
+用轻量方式展示我的学习和创作经历。
+不要做厚重履历表，要像创作档案。
+
+内容示例：
+- 2026 / Short film project in development
+- 2025 / Completed documentary and storyboard series
+- 2024 / Began directing and visual narrative experiments
+
+设计：
+- 使用细线
+- 小号文字
+- 半透明白色信息块
+- 滚动触发淡入
+- 可以加入轻微时间码元素
+
+十三、About Me 关于我
+
+内容包括：
+- 编导生身份
+- 关注方向
+- 技能
+- 软件能力
+- 合作方向
+
+示例文案：
+"I am a directing student exploring narrative film, documentary, storyboarding, and visual essays. I work across writing, directing, editing, and visual development, with a focus on emotional rhythm and cinematic atmosphere."
+
+技能标签：
+- Directing
+- Screenwriting
+- Storyboarding
+- Editing
+- Photography
+- Documentary
+- Visual Research
+- Premiere Pro
+- DaVinci Resolve
+- Photoshop
+
+十四、Contact 联系方式
+
+联系区域保持简洁。
+展示：
+- Email
+- WeChat
+- B站
+- 小红书
+- 抖音
+- Vimeo / YouTube
+- Instagram
+
+CTA 文案：
+"Let’s create something visual."
+
+按钮：
+"Contact Me"
+
+十五、动效要求
+
+使用 Framer Motion 实现：
+- Nav pill 从上方轻微淡入
+- Badge 延迟淡入
+- Heading 上移淡入
+- Subtitle 柔和淡入
+- CTA hover 阴影变化
+- 作品卡片 hover 放大和信息浮现
+- 滚动区域进入视口时淡入
+- 背景视频持续循环
+
+动效原则：
+- 克制
+- 高级
+- 电影感
+- 不弹跳
+- 不花哨
+- 不堆特效
+
+十六、色彩规范
+
+主文字：
+`#1B133C`
+
+玻璃白：
+`#FEFEFE`
+`rgba(255,255,255,0.7)`
+
+边框：
+`#1B133C` 10% opacity
+
+强调色：
+Tailwind `orange-500`
+
+可选辅助色：
+- soft warm gray
+- pale blue shadow
+- muted beige
+- transparent white
+
+整体要保持 Axon 的明亮、通透、轻盈，而不是传统黑色电影网站。
+
+十七、最终交付要求
+
+请输出完整可运行项目代码。
+代码结构清晰，组件拆分合理。
+
+至少包含：
+- Hero section
+- Navigation
+- BackgroundVideo component
+- Works section
+- WorkCard component
+- WorkDetail modal or expandable panel
+- Showreel section
+- DirectorStatement section
+- Timeline section
+- About section
+- Contact section
+- 示例作品数据
+- 可替换的视频和图片占位资源
+- Tailwind 样式
+- Framer Motion 动效
+
+页面必须：
+- PC 端视觉效果优秀
+- 兼容移动端
+- 背景视频正常播放
+- 文字可读
+- 动效流畅
+- 内容像真实编导生作品集
+- 设计风格明确继承 Axon
+
+最终效果：
+这是一个以 Axon landing page 为视觉基因的个人导演作品集网站。它不是产品官网，而是一个编导生的高级影像作品档案。首屏要像一个干净、通透、有电影感的 showreel 入口；下方内容要能系统展示我的作品、创作理念、经历和联系方式。整体要专业、克制、炫酷、有记忆点，可以用于申请学校、投递项目、展示作品和建立个人创作者品牌。
