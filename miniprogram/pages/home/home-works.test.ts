@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getVisibleWorks } from "./home-works";
+import { getVisibleWorks } from "./home-works.ts";
 
 describe("首页作品展示", () => {
   it("切换到未命中标签时返回空列表", () => {

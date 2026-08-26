@@ -309,6 +309,44 @@ export function WorkDetailModal({ work, onClose }: WorkDetailModalProps) {
                 </div>
               )}
             </div>
+            <div className="grid gap-6 bg-[#11101a] px-5 py-6 sm:grid-cols-[minmax(0,1fr)_minmax(12rem,0.45fr)] sm:px-7">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45">
+                  {work.category}
+                </p>
+                <h2 id="work-detail-title" className="mt-2 font-serif text-3xl leading-none sm:text-4xl">
+                  {work.title}
+                </h2>
+                {work.description ? (
+                  <p className="mt-4 max-w-2xl text-sm leading-6 text-white/68">
+                    {work.description}
+                  </p>
+                ) : null}
+              </div>
+              <div className="grid content-start gap-4 text-sm">
+                <div>
+                  <p className="text-xs font-semibold tracking-wide text-white/45">影片基础信息</p>
+                  <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 text-white/78">
+                    <dt className="text-white/45">类型</dt>
+                    <dd>{work.category}</dd>
+                    <dt className="text-white/45">职责</dt>
+                    <dd>{work.role}</dd>
+                    {work.duration ? (
+                      <>
+                        <dt className="text-white/45">片长</dt>
+                        <dd>{work.duration}</dd>
+                      </>
+                    ) : null}
+                  </dl>
+                </div>
+                {work.creators?.length ? (
+                  <div>
+                    <p className="text-xs font-semibold tracking-wide text-white/45">制作者</p>
+                    <p className="mt-2 text-white/78">{work.creators.join("、")}</p>
+                  </div>
+                ) : null}
+              </div>
+            </div>
           </motion.article>
         </motion.div>
       ) : null}

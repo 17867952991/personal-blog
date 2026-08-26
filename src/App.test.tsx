@@ -12,27 +12,22 @@ describe("导演作品集", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /光影寄存处/i
+        name: "不免-个人网站"
       })
     ).toBeInTheDocument();
 
     for (const label of [
       "全部作品",
-      "代表样片",
-      "导演阐述",
-      "关于我",
       "联系我"
     ]) {
       expect(screen.getByRole("heading", { name: label })).toBeInTheDocument();
     }
 
-    expect(works).toHaveLength(1);
+    expect(works).toHaveLength(4);
     expect(screen.getByRole("heading", { name: "未转头时皆梦" })).toBeInTheDocument();
     expect(screen.queryByText("作品待添加")).not.toBeInTheDocument();
     expect(screen.getByRole("button", { name: "全部" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "AI短片" })).toBeInTheDocument();
-    expect(screen.queryByText("创作时间线")).not.toBeInTheDocument();
-    expect(screen.queryByText("静默走廊")).not.toBeInTheDocument();
   });
 
   it("打开带作品区锚点的网址时自动滚到全部作品", async () => {

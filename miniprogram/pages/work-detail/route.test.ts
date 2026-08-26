@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { resolveWorkRoute } from "./route";
+import { resolveWorkRoute } from "./route.ts";
 
 describe("作品详情路由", () => {
   it("解析有效作品 id", () => {
