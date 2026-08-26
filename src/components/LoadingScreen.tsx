@@ -54,10 +54,14 @@ export function LoadingScreen() {
       data-state={phase}
       data-testid="loading-screen"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(100,72,158,0.22),transparent_48%)]" />
+      <div
+        aria-hidden="true"
+        className="absolute left-1/2 top-1/2 h-[22rem] w-[52rem] max-w-[140vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(130,95,209,0.35),rgba(55,136,158,0.14)_40%,transparent_72%)] blur-3xl"
+        data-testid="loading-orb"
+      />
       {!reduceMotion ? (
         <Strands
-          className="absolute inset-0 opacity-95"
+          className="absolute left-1/2 top-1/2 h-[21rem] w-[58rem] max-w-[150vw] -translate-x-1/2 -translate-y-1/2 opacity-95"
           colors={STRAND_COLORS}
           count={3}
           speed={0.48}
@@ -67,7 +71,10 @@ export function LoadingScreen() {
           glow={2.4}
         />
       ) : null}
-      <div className="relative flex flex-col items-center gap-4">
+      <div
+        className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-4"
+        data-testid="loading-content"
+      >
         <span className="h-px w-16 bg-gradient-to-r from-transparent via-[#D3A84C] to-transparent" />
         <p className="font-mono text-xs font-semibold tracking-[0.38em] text-white/90 sm:text-sm">
           LOADING······
