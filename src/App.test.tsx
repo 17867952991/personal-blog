@@ -32,6 +32,7 @@ describe("导演作品集", () => {
     expect(screen.queryByText("作品待添加")).not.toBeInTheDocument();
     expect(screen.getByRole("button", { name: "全部" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "AI短片" })).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "查看全部作品" })).not.toBeInTheDocument();
   });
 
   it("打开带作品区锚点的网址时自动滚到全部作品", async () => {

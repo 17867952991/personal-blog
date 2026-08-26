@@ -1,4 +1,3 @@
-import { Play } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { BackgroundVideo } from "./BackgroundVideo";
 import { Navigation } from "./Navigation";
@@ -52,20 +51,6 @@ export function Hero({ videoUrl }: HeroProps) {
           一个关于编导专业大学生的作品档案
         </motion.p>
 
-        <motion.div
-          initial={initial}
-          animate={animate}
-          transition={{ duration: 0.75, delay: 0.44, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-7 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row"
-        >
-          <a
-            href="#works"
-            className="inline-flex items-center gap-2 whitespace-nowrap rounded-xl bg-[#FEFEFE] px-6 py-3 text-sm font-semibold text-[#1B133C] shadow-[0px_4px_12px_rgba(27,19,60,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0px_6px_16px_rgba(27,19,60,0.2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-500 active:translate-y-px sm:px-8 sm:py-3.5"
-          >
-            <Play className="h-4 w-4" aria-hidden="true" />
-            查看全部作品
-          </a>
-        </motion.div>
       </div>
     </section>
   );
