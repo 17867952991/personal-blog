@@ -34,3 +34,6 @@ pnpm-debug.log*
 .env
 .env.local
 .env.*.local
+
+# 视频资源（体积过大，仅本地保留；封面 jpg 仍正常上传）
+public/videos/*.mp4
