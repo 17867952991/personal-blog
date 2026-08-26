@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { BackgroundVideo } from "./BackgroundVideo";
+import { MaskedHeading } from "./MaskedHeading";
 import { Navigation } from "./Navigation";
 
 type HeroProps = {
@@ -24,15 +25,23 @@ export function Hero({ videoUrl }: HeroProps) {
       <Navigation />
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center px-5 pb-16 text-center sm:px-8">
-        <motion.h1
+        <motion.div
           initial={initial}
           animate={animate}
           transition={{ duration: 0.8, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-          aria-label="不免-个人网站"
-          className="hero-title-zh max-w-[22rem] text-balance text-[3.45rem] leading-[0.95] text-[#1B133C] sm:max-w-5xl sm:text-[5.6rem] sm:leading-[0.9] md:text-[6.6rem] lg:text-[7.2rem]"
+          className="w-full max-w-[22rem] sm:max-w-5xl"
         >
-          <span className="block translate-x-[0.055em]">不免-个人网站</span>
-        </motion.h1>
+          <MaskedHeading
+            className="hero-title-zh text-[3.45rem] leading-[0.95] sm:text-[5.6rem] sm:leading-[0.9] md:text-[6.6rem] lg:text-[7.2rem]"
+            drift={7}
+            fillScale={1.36}
+            mediaType="video"
+            parallax={14}
+            reveal="rise"
+            src={videoUrl}
+            text="不免-个人网站"
+          />
+        </motion.div>
 
         <motion.span
           initial={initial}

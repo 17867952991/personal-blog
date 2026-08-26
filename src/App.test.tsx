@@ -6,6 +6,10 @@ vi.mock("./components/LoadingScreen", () => ({
   LoadingScreen: () => null
 }));
 
+vi.mock("./components/MaskedHeading", () => ({
+  MaskedHeading: ({ text }: { text: string }) => <h1 data-testid="masked-heading">{text}</h1>
+}));
+
 describe("导演作品集", () => {
   beforeEach(() => {
     window.history.replaceState(null, "", "/");
@@ -19,6 +23,7 @@ describe("导演作品集", () => {
         name: "不免-个人网站"
       })
     ).toBeInTheDocument();
+    expect(screen.getByTestId("masked-heading")).toHaveTextContent("不免-个人网站");
 
     for (const label of [
       "全部作品",
