@@ -29,6 +29,8 @@ function excludeVideosFromBuild(): Plugin {
 }
 
 export default defineConfig({
+  // GitHub Pages 的项目站点会挂载在 /personal-blog/ 下。
+  base: "/personal-blog/",
   plugins: [react(), tailwindcss(), excludeVideosFromBuild()],
   test: {
     environment: "jsdom",
