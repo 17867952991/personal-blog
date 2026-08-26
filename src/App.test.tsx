@@ -2,6 +2,10 @@ import { render, screen, waitFor } from "@testing-library/react";
 import App from "./App";
 import { works } from "./data/works";
 
+vi.mock("./components/LoadingScreen", () => ({
+  LoadingScreen: () => null
+}));
+
 describe("导演作品集", () => {
   beforeEach(() => {
     window.history.replaceState(null, "", "/");
