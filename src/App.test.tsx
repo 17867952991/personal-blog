@@ -33,6 +33,11 @@ describe("导演作品集", () => {
     }
 
     expect(works).toHaveLength(4);
+    expect(
+      works
+        .filter((work) => work.collection === "熊出没-修仙篇")
+        .every((work) => work.coverImage?.endsWith(".gif"))
+    ).toBe(true);
     expect(screen.getByRole("heading", { name: "未转头时皆梦" })).toBeInTheDocument();
     expect(screen.queryByText("作品待添加")).not.toBeInTheDocument();
     expect(screen.getByRole("button", { name: "全部" })).toBeInTheDocument();
