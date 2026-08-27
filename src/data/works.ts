@@ -2,6 +2,8 @@ import type { PortfolioWork } from "../types";
 
 // 兼容 GitHub Pages 的项目子路径（/personal-blog/）。
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+const xiongchumoResourceUrl = "https://pan.baidu.com/s/1WabwFmyRmkPO_p4v2QSw-g";
+const xiongchumoResourceCode = "x65y";
 
 export const showreelVideoUrl =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260714_113715_c7e0daa0-8bdd-4486-a2da-040901f8f0ea.mp4";
@@ -32,6 +34,8 @@ export const works: PortfolioWork[] = [
     coverImage: asset("videos/xiongchumo-xiuxian-01-cover.jpg"),
     videoUrl: "/videos/xiongchumo-xiuxian-01.mp4",
     format: "MP4",
+    resourceUrl: xiongchumoResourceUrl,
+    resourceCode: xiongchumoResourceCode,
     tags: ["AI短片", "漫剧", "合集"],
     collection: "熊出没-修仙篇",
     episode: 1,
@@ -46,6 +50,8 @@ export const works: PortfolioWork[] = [
     coverImage: asset("videos/xiongchumo-xiuxian-02-cover.jpg"),
     videoUrl: "/videos/xiongchumo-xiuxian-02.mp4",
     format: "MP4",
+    resourceUrl: xiongchumoResourceUrl,
+    resourceCode: xiongchumoResourceCode,
     tags: ["AI短片", "漫剧", "合集"],
     collection: "熊出没-修仙篇",
     episode: 2,
@@ -60,6 +66,8 @@ export const works: PortfolioWork[] = [
     coverImage: asset("videos/xiongchumo-xiuxian-03-cover.jpg"),
     videoUrl: "/videos/xiongchumo-xiuxian-03.mp4",
     format: "MP4",
+    resourceUrl: xiongchumoResourceUrl,
+    resourceCode: xiongchumoResourceCode,
     tags: ["AI短片", "漫剧", "合集"],
     collection: "熊出没-修仙篇",
     episode: 3,

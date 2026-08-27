@@ -1,5 +1,5 @@
 import { type CSSProperties, type ChangeEvent, useEffect, useRef, useState } from "react";
-import { Maximize2, Minimize2, Pause, Play, Volume2, VolumeX, X } from "lucide-react";
+import { ExternalLink, Maximize2, Minimize2, Pause, Play, Volume2, VolumeX, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import type { PortfolioWork } from "../types";
 
@@ -343,6 +343,24 @@ export function WorkDetailModal({ work, onClose }: WorkDetailModalProps) {
                   <div>
                     <p className="text-xs font-semibold tracking-wide text-white/45">制作者</p>
                     <p className="mt-2 text-white/78">{work.creators.join("、")}</p>
+                  </div>
+                ) : null}
+                {work.resourceUrl ? (
+                  <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3.5">
+                    <p className="text-xs font-semibold tracking-wide text-white/45">网盘资源</p>
+                    <a
+                      href={work.resourceUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="打开百度网盘"
+                      className="mt-2 inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-sm font-semibold text-[#1B133C] transition hover:bg-orange-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+                    >
+                      打开百度网盘
+                      <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                    </a>
+                    {work.resourceCode ? (
+                      <p className="mt-2 text-xs text-white/60">提取码：<span className="font-semibold tracking-wider text-white/85">{work.resourceCode}</span></p>
+                    ) : null}
                   </div>
                 ) : null}
               </div>

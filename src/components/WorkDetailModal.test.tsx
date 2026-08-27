@@ -56,6 +56,20 @@ describe("WorkDetailModal", () => {
     expect(screen.getByRole("button", { name: "全屏播放" })).toBeInTheDocument();
   });
 
+  it("展示网盘资源入口和提取码", () => {
+    render(
+      <WorkDetailModal
+        work={{ ...work, resourceUrl: "https://pan.baidu.com/s/RESOURCE", resourceCode: "x65y" }}
+        onClose={() => undefined}
+      />
+    );
+
+    const link = screen.getByRole("link", { name: "打开百度网盘" });
+    expect(link).toHaveAttribute("href", "https://pan.baidu.com/s/RESOURCE");
+    expect(link).toHaveAttribute("target", "_blank");
+    expect(screen.getByText("提取码：").parentElement).toHaveTextContent("提取码：x65y");
+  });
+
   it("播放和暂停按钮控制影片", () => {
     const play = vi.fn().mockResolvedValue(undefined);
     const pause = vi.fn();

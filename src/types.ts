@@ -16,6 +16,8 @@ export type PortfolioWork = {
   tags?: string[];
   format?: string;
   location?: string;
+  resourceUrl?: string;
+  resourceCode?: string;
   collection?: string;
   episode?: number;
   collectionTotal?: number;
