@@ -56,6 +56,13 @@ describe("WorkDetailModal", () => {
     expect(screen.getByRole("button", { name: "全屏播放" })).toBeInTheDocument();
   });
 
+  it("内容超出屏幕时详情窗口可在内部滚动", () => {
+    render(<WorkDetailModal work={work} onClose={() => undefined} />);
+
+    expect(screen.getByRole("dialog")).toHaveClass("overflow-y-auto");
+    expect(screen.getByRole("dialog")).toHaveClass("max-h-[calc(100dvh-3rem)]");
+  });
+
   it("展示网盘资源入口和提取码", () => {
     render(
       <WorkDetailModal

@@ -189,7 +189,7 @@ export function WorkDetailModal({ work, onClose }: WorkDetailModalProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full max-w-5xl overflow-hidden rounded-xl border border-white/70 bg-[#08070f] text-white shadow-[0_30px_100px_rgba(0,0,0,0.5)] backdrop-blur-2xl"
+            className="max-h-[calc(100dvh-3rem)] w-full max-w-5xl overflow-y-auto overscroll-contain rounded-xl border border-white/70 bg-[#08070f] text-white shadow-[0_30px_100px_rgba(0,0,0,0.5)] backdrop-blur-2xl"
           >
             <div
               ref={playerRef}
