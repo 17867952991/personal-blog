@@ -29,10 +29,11 @@ export function Hero({ videoUrl }: HeroProps) {
           initial={initial}
           animate={animate}
           transition={{ duration: 0.8, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full max-w-[22rem] sm:max-w-5xl"
+          className="w-full max-w-[19rem] text-center sm:max-w-4xl"
         >
           <MaskedHeading
-            className="hero-title-zh text-[3.45rem] leading-[0.95] sm:text-[5.6rem] sm:leading-[0.9] md:text-[6.6rem] lg:text-[7.2rem]"
+            align="center"
+            className="hero-title-zh text-[2.8rem] leading-[0.95] sm:text-[4.35rem] sm:leading-[0.9] md:text-[5.2rem] lg:text-[5.6rem]"
             drift={7}
             fillScale={1.36}
             mediaType="video"
