@@ -24,12 +24,15 @@ describe("LoadingScreen", () => {
     render(<LoadingScreen />);
 
     expect(screen.getByText("LOADING······")).toBeInTheDocument();
+    expect(screen.getByRole("progressbar")).toHaveAttribute("aria-valuenow", "0");
     expect(screen.getByTestId("strands-animation")).toBeInTheDocument();
     expect(screen.getByTestId("loading-orb")).toHaveClass("left-1/2", "top-1/2");
     expect(screen.getByTestId("loading-content")).toHaveClass("items-center", "justify-center");
 
     fireEvent(window, new Event("load"));
-    act(() => vi.advanceTimersByTime(2499));
+    act(() => vi.advanceTimersByTime(50));
+    expect(Number(screen.getByRole("progressbar").getAttribute("aria-valuenow"))).toBeGreaterThan(0);
+    act(() => vi.advanceTimersByTime(2449));
     expect(screen.getByTestId("loading-screen")).toHaveAttribute("data-state", "loading");
 
     act(() => vi.advanceTimersByTime(1));

@@ -15,12 +15,19 @@ export function LoadingScreen() {
   const [phase, setPhase] = useState<LoadingPhase>("loading");
   const [minimumElapsed, setMinimumElapsed] = useState(false);
   const [pageLoaded, setPageLoaded] = useState(() => document.readyState === "complete");
+  const [progress, setProgress] = useState(0);
   const [reduceMotion] = useState(prefersReducedMotion);
 
   useEffect(() => {
     const minimumTimer = window.setTimeout(() => setMinimumElapsed(true), MINIMUM_DURATION);
+    const progressTimer = window.setInterval(() => {
+      setProgress((current) => Math.min(current + 2, 96));
+    }, 50);
 
-    return () => window.clearTimeout(minimumTimer);
+    return () => {
+      window.clearTimeout(minimumTimer);
+      window.clearInterval(progressTimer);
+    };
   }, []);
 
   useEffect(() => {
@@ -37,6 +44,7 @@ export function LoadingScreen() {
   useEffect(() => {
     if (!pageLoaded || !minimumElapsed) return;
 
+    setProgress(100);
     setPhase("exiting");
     const exitTimer = window.setTimeout(() => setPhase("done"), EXIT_DURATION);
 
@@ -79,6 +87,19 @@ export function LoadingScreen() {
         <p className="font-mono text-xs font-semibold tracking-[0.38em] text-white/90 sm:text-sm">
           LOADING······
         </p>
+        <div
+          aria-label="加载进度"
+          aria-valuemax={100}
+          aria-valuemin={0}
+          aria-valuenow={progress}
+          className="h-1 w-40 overflow-hidden rounded-full bg-white/15 sm:w-52"
+          role="progressbar"
+        >
+          <div
+            className="h-full rounded-full bg-gradient-to-r from-[#D3A84C] via-[#9B7BFF] to-[#4AA7B8] transition-[width] duration-150 ease-out"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
         <span className="h-px w-16 bg-gradient-to-r from-transparent via-[#4AA7B8] to-transparent" />
       </div>
     </section>
