@@ -1,10 +1,11 @@
-import { Mail } from "lucide-react";
+import { Github, Mail } from "lucide-react";
 import { SectionReveal } from "./SectionReveal";
 
 const channels = [
   { label: "邮箱", value: "3598938817@qq.com", icon: Mail, href: "mailto:yourname@portfolio.com" },
   { label: "QQ", value: "3598938817", icon: Mail, href: "mailto:yourname@portfolio.com" },
    { label: "B站", value: "UID:498521218", icon: Mail, href: "https://space.bilibili.com/498521218" },
+  { label: "GitHub", value: "dwcbumian", icon: Github, href: "https://github.com/dwcbumian", external: true },
 ];
 
 export function ContactSection() {
@@ -27,10 +28,12 @@ export function ContactSection() {
         </p>
 
         <div className="mt-9 grid gap-3 text-left sm:grid-cols-2 lg:grid-cols-3">
-          {channels.map(({ label, value, icon: Icon, href }) => (
+          {channels.map(({ label, value, icon: Icon, href, external }) => (
             <a
               key={label}
               href={href}
+              target={external ? "_blank" : undefined}
+              rel={external ? "noreferrer" : undefined}
               className="flex items-center gap-3 rounded-xl border border-[#1B133C]/10 bg-white/70 p-4 text-[#1B133C] transition duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-500"
             >
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/10 text-orange-600">
